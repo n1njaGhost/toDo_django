@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>ToDo</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <main class="main">
+            <div class="container">
+                <h1>List of my cases</h1>
+                
+                <div class="inner">
+                    <form action="/addTodoItem/" method="post">{% csrf_token %}
+                        <input type="text" name="content" required="required" class="content">
+                        <input type="submit" value="Add Item" class="submit">
+                    </form>
+                    
+                    <ul class="list">
+                        {% for i in all_items %}
+                        <li class="item">{{i.content}}
+                            <form action="/deleteTodoItem/{{i.id}}" method="post">{% csrf_token %}
+                                <input type="submit" value="Delete" class="delete btn btn-dark">
+                            </form>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{% static 'scripts/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'scripts/main.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    padding-top: 20px;
+}
+
+.inner {
+    margin-left: 30px;
+}
+
+.content {
+    width: 250px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.submit {
+    padding: 5px;
+}
+
+.list {
+    margin: 10px 0 0 5px;
+    padding: 0;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.delete {
+    margin-left: 15px;
+}
